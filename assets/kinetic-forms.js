@@ -8,6 +8,8 @@
   function handleForm(form) {
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+      e.stopImmediatePropagation();
+      e.stopPropagation();
 
       var btn = form.querySelector('.form-submit-btn');
       var successMsg = form.querySelector('.form-status--success');
