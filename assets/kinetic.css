@@ -97,12 +97,12 @@
 
 .kinetic-formspree .form-status.form-status--success {
   border-left: 4px solid #2ecc71;
-  display: block;
+
 }
 
 .kinetic-formspree .form-status.form-status--error {
   border-left: 4px solid #e74c3c;
-  display: block;
+
 }
 
 /* ── Navigation Fallback ────────────────────── */
