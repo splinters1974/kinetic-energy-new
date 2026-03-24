@@ -105,6 +105,11 @@
 
 }
 
+/* ── Our Story – white text override ────────── */
+.sqsrte-text-color--white { color: #1c3461 !important; }
+.sqs-button-element--secondary { color: #1c3461 !important; border-color: #1c3461 !important; background-color: transparent !important; }
+.sqs-button-element--secondary:hover { background-color: #1c3461 !important; color: #ffffff !important; }
+
 /* ── Navigation Fallback ────────────────────── */
 
 /* Ensure folder dropdown menus work without Squarespace JS */
