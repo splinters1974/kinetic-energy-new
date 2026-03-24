@@ -31,7 +31,7 @@
           method: 'POST',
           body: data,
           headers: { 'Accept': 'application/json' }
-        });
+        }, true); // capture phase
 
         if (response.ok) {
           form.reset();
@@ -57,7 +57,7 @@
           btn.textContent = 'Send';
         }
       }
-    });
+    }, true); // capture phase
   }
 
   function init() {
