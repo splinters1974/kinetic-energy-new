@@ -1,0 +1,179 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 301
+
+[[redirects]]
+  from = "/our-story"
+  to = "/our-story.html"
+  status = 301
+
+[[redirects]]
+  from = "/why-kinetic-energy"
+  to = "/why-kinetic-energy.html"
+  status = 301
+
+[[redirects]]
+  from = "/why-not-just-use-ai"
+  to = "/why-not-just-use-ai.html"
+  status = 301
+
+[[redirects]]
+  from = "/who-we-work-with"
+  to = "/who-we-work-with.html"
+  status = 301
+
+[[redirects]]
+  from = "/services-we-deliver"
+  to = "/services-we-deliver.html"
+  status = 301
+
+[[redirects]]
+  from = "/pricing"
+  to = "/pricing.html"
+  status = 301
+
+[[redirects]]
+  from = "/return-on-investment"
+  to = "/return-on-investment.html"
+  status = 301
+
+[[redirects]]
+  from = "/experience"
+  to = "/experience.html"
+  status = 301
+
+[[redirects]]
+  from = "/testimonials"
+  to = "/testimonials.html"
+  status = 301
+
+[[redirects]]
+  from = "/insight"
+  to = "/insight.html"
+  status = 301
+
+[[redirects]]
+  from = "/sales-assets"
+  to = "/sales-assets.html"
+  status = 301
+
+[[redirects]]
+  from = "/energy-and-decarbonisation-solution-providers"
+  to = "/energy-and-decarbonisation-solution-providers.html"
+  status = 301
+
+[[redirects]]
+  from = "/energy-consultancies"
+  to = "/energy-consultancies.html"
+  status = 301
+
+[[redirects]]
+  from = "/engineering-fm-providers"
+  to = "/engineering-fm-providers.html"
+  status = 301
+
+[[redirects]]
+  from = "/new-market-entrants"
+  to = "/new-market-entrants.html"
+  status = 301
+
+[[redirects]]
+  from = "/investors-funds-private-equity"
+  to = "/investors-funds-private-equity.html"
+  status = 301
+
+[[redirects]]
+  from = "/corporate-leadership-teams-in-transition"
+  to = "/corporate-leadership-teams-in-transition.html"
+  status = 301
+
+[[redirects]]
+  from = "/commercial-strategy-deal-structuring"
+  to = "/commercial-strategy-deal-structuring.html"
+  status = 301
+
+[[redirects]]
+  from = "/bid-and-pursuit-strategy"
+  to = "/bid-and-pursuit-strategy.html"
+  status = 301
+
+[[redirects]]
+  from = "/go-to-market-strategy"
+  to = "/go-to-market-strategy.html"
+  status = 301
+
+[[redirects]]
+  from = "/marketing-proposition-development"
+  to = "/marketing-proposition-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/interim-and-fractional-commercial-leadership"
+  to = "/interim-and-fractional-commercial-leadership.html"
+  status = 301
+
+[[redirects]]
+  from = "/market-entry-and-expansion-support"
+  to = "/market-entry-and-expansion-support.html"
+  status = 301
+
+[[redirects]]
+  from = "/marketing-and-demand-alignment"
+  to = "/marketing-and-demand-alignment.html"
+  status = 301
+
+[[redirects]]
+  from = "/partnership-and-channel-strategy"
+  to = "/partnership-and-channel-strategy.html"
+  status = 301
+
+[[redirects]]
+  from = "/recruiting-the-right-people"
+  to = "/recruiting-the-right-people.html"
+  status = 301
+
+[[redirects]]
+  from = "/sales-performance-and-coaching"
+  to = "/sales-performance-and-coaching.html"
+  status = 301
+
+[[redirects]]
+  from = "/sales-process-pipeline-optimisation"
+  to = "/sales-process-pipeline-optimisation.html"
+  status = 301
+
+[[redirects]]
+  from = "/value-proposition-development"
+  to = "/value-proposition-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy-policy.html"
+  status = 301
+
+[[redirects]]
+  from = "/non-executive-representation"
+  to = "/non-executive-representation.html"
+  status = 301
+
+[[redirects]]
+  from = "/insight/:slug"
+  to = "/insight/:slug.html"
+  status = 301
+
+[[redirects]]
+  from = "/cart"
+  to = "/cart.html"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -1,0 +1,153 @@
+/* =============================================
+   Kinetic Strategy Consulting – Custom Styles
+   Netlify / Formspree migration overrides
+   ============================================= */
+
+/* ── Formspree Contact Form ─────────────────── */
+.kinetic-formspree {
+  width: 100%;
+  max-width: 620px;
+  font-family: Montserrat, sans-serif;
+}
+
+.kinetic-formspree .field-group {
+  margin-bottom: 1.2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.kinetic-formspree label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.4em;
+  color: inherit;
+}
+
+.kinetic-formspree .field-required {
+  font-weight: 400;
+  font-size: 0.7rem;
+  opacity: 0.7;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.kinetic-formspree input[type="text"],
+.kinetic-formspree input[type="email"],
+.kinetic-formspree input[type="tel"],
+.kinetic-formspree textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75em 1em;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.9rem;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+
+.kinetic-formspree input[type="text"]:focus,
+.kinetic-formspree input[type="email"]:focus,
+.kinetic-formspree input[type="tel"]:focus,
+.kinetic-formspree textarea:focus {
+  border-color: currentColor;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.15);
+}
+
+.kinetic-formspree textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.kinetic-formspree .form-submit-btn {
+  display: inline-block;
+  margin-top: 0.5em;
+  padding: 0.85em 2.2em;
+  background: transparent;
+  border: 2px solid currentColor;
+  color: inherit;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.kinetic-formspree .form-submit-btn:hover {
+  background: currentColor;
+}
+
+.kinetic-formspree .form-submit-btn:hover span {
+  color: #fff;
+}
+
+.kinetic-formspree .form-status {
+  margin-top: 1.2em;
+  padding: 1em 1.2em;
+  font-size: 0.95rem;
+  display: none;
+}
+
+.kinetic-formspree .form-status.form-status--success {
+  border-left: 4px solid #2ecc71;
+  display: block;
+}
+
+.kinetic-formspree .form-status.form-status--error {
+  border-left: 4px solid #e74c3c;
+  display: block;
+}
+
+/* ── Navigation Fallback ────────────────────── */
+
+/* Ensure folder dropdown menus work without Squarespace JS */
+.header-nav-folder-title {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.header-nav-folder-content {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  background: inherit;
+  min-width: 220px;
+  top: 100%;
+  left: 0;
+}
+
+.header-nav-item--folder {
+  position: relative;
+}
+
+.header-nav-item--folder:hover .header-nav-folder-content,
+.header-nav-item--folder .header-nav-folder-title[aria-expanded="true"] + .header-nav-folder-content {
+  display: block;
+}
+
+/* Burger / mobile menu overlay */
+.header-menu-overlay--open {
+  display: flex !important;
+}
+
+/* Mobile folder items inside overlay */
+.mobile-overlay-nav .header-nav-folder-content {
+  position: static;
+  display: none;
+  padding-left: 1em;
+}
+
+.mobile-overlay-nav .header-nav-folder-title[aria-expanded="true"] + .header-nav-folder-content {
+  display: block;
+}
