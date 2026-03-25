@@ -3,20 +3,6 @@
    Netlify / Formspree migration overrides
    ============================================= */
 
-/* ── SEO: visually-hidden H1 for pages where the
-   main heading is rendered via a Squarespace block ── */
-.seo-h1 {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 /* ── Formspree Contact Form ─────────────────── */
 .kinetic-formspree {
   width: 100%;
