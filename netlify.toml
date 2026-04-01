@@ -8,7 +8,28 @@
   status = 301
   force = true
 
-# --- 2. Remove .html extension from all indexed URLs (SEO deduplication) ---
+# --- 2. Redirect Squarespace leftover pages to homepage ---
+[[redirects]]
+  from = "/cart"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/cart.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/_downloads"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/_downloads.html"
+  to = "/"
+  status = 301
+
+# --- 3. Remove .html extension from all indexed URLs (SEO deduplication) ---
 [[redirects]]
   from = "/index.html"
   to = "/"
