@@ -1,14 +1,7 @@
 [build]
   publish = "."
 
-# --- 1. Domain consolidation: non-www → www ---
-[[redirects]]
-  from = "https://kinetic-energy.co.uk/*"
-  to = "https://www.kinetic-energy.co.uk/:splat"
-  status = 301
-  force = true
-
-# --- 2. Redirect Squarespace leftover pages to homepage ---
+# --- 1. Redirect Squarespace leftover pages to homepage ---
 [[redirects]]
   from = "/cart"
   to = "/"
