@@ -149,13 +149,27 @@
     });
   }
 
+  /* ── Disable Squarespace scroll animations ───────
+     The body class tweak-global-animations-enabled causes
+     Squarespace CSS to hide all [data-animation-role] elements
+     (blog cards, sections, etc.) at opacity:0 until its scroll
+     JS reveals them. Since that JS is removed, we strip the
+     class so content is visible immediately.
+  ─────────────────────────────────────────────────── */
+  function disableSquarespaceAnimations() {
+    document.body.classList.remove('tweak-global-animations-enabled');
+  }
+
   if (document.readyState === 'loading') {
+    // Run animation disable as early as possible to avoid flash of hidden content
     document.addEventListener('DOMContentLoaded', function () {
+      disableSquarespaceAnimations();
       init();
       loadSqsImages();
       initVideoBackgrounds();
     });
   } else {
+    disableSquarespaceAnimations();
     init();
     loadSqsImages();
     initVideoBackgrounds();
