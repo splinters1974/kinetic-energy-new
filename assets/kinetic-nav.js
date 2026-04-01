@@ -66,9 +66,11 @@
      site-bundle.js relied on Static.SQUARESPACE_CONTEXT
      to reveal lazy images. We replace that here by:
      1. Copying data-src → src where src is missing/blank
-     2. Marking every sqs-managed image as loaded so the
+     2. Setting CSS variables Squarespace normally injects
+        (focal point, object-fit) so images display correctly
+     3. Marking every sqs-managed image as loaded so the
         Squarespace CSS unhides them (data-load="true")
-     3. Using IntersectionObserver to do this lazily where
+     4. Using IntersectionObserver to do this lazily where
         possible, falling back to eager load otherwise.
   ─────────────────────────────────────────────────── */
   function loadSqsImages() {
@@ -82,7 +84,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { rootMargin: '200px' });
+      }, { rootMargin: '400px' });
 
       images.forEach(function (img) { observer.observe(img); });
     } else {
@@ -95,14 +97,68 @@
     if (dataSrc && (!img.src || img.src === window.location.href)) {
       img.src = dataSrc;
     }
+    // Set CSS variables that Squarespace JS normally injects so images
+    // using object-position/object-fit CSS vars display correctly
+    var focalPoint = img.getAttribute('data-image-focal-point');
+    if (focalPoint && focalPoint !== ',') {
+      var parts = focalPoint.split(',');
+      var x = Math.round(parseFloat(parts[0]) * 100) + '%';
+      var y = Math.round(parseFloat(parts[1]) * 100) + '%';
+      img.style.setProperty('--image-component-focal-point', x + ' ' + y);
+    } else {
+      img.style.setProperty('--image-component-focal-point', '50% 50%');
+    }
+    img.style.setProperty('--image-component-object-fit', 'cover');
     img.setAttribute('data-load', 'true');
   }
 
+  /* ── Squarespace native video background replacement ──
+     Squarespace's JS would create a <video> element inside
+     .sqs-video-background-native__video-player using the
+     alexandriaUrl from the data-config-native-video JSON.
+     We instead use the locally hosted video file.
+  ─────────────────────────────────────────────────── */
+  function initVideoBackgrounds() {
+    var players = document.querySelectorAll('.sqs-video-background-native');
+    players.forEach(function (container) {
+      var playerDiv = container.querySelector('.sqs-video-background-native__video-player');
+      if (!playerDiv) return;
+
+      // Get the filename from the config JSON embedded in the data attribute
+      var configRaw = container.getAttribute('data-config-native-video');
+      if (!configRaw) return;
+      try {
+        var config = JSON.parse(configRaw.replace(/&quot;/g, '"'));
+        var filename = config.filename;
+        if (!filename) return;
+        var src = '/assets/videos/' + filename;
+
+        var video = document.createElement('video');
+        video.setAttribute('autoplay', '');
+        video.setAttribute('muted', '');
+        video.setAttribute('loop', '');
+        video.setAttribute('playsinline', '');
+        video.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;';
+        var source = document.createElement('source');
+        source.src = src;
+        source.type = 'video/mp4';
+        video.appendChild(source);
+        playerDiv.appendChild(video);
+        video.play().catch(function () {});
+      } catch (e) {}
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { init(); loadSqsImages(); });
+    document.addEventListener('DOMContentLoaded', function () {
+      init();
+      loadSqsImages();
+      initVideoBackgrounds();
+    });
   } else {
     init();
     loadSqsImages();
+    initVideoBackgrounds();
   }
 
 })();
