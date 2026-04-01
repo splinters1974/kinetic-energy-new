@@ -62,10 +62,47 @@
 
   }
 
+  /* ── Squarespace image loader replacement ────────
+     site-bundle.js relied on Static.SQUARESPACE_CONTEXT
+     to reveal lazy images. We replace that here by:
+     1. Copying data-src → src where src is missing/blank
+     2. Marking every sqs-managed image as loaded so the
+        Squarespace CSS unhides them (data-load="true")
+     3. Using IntersectionObserver to do this lazily where
+        possible, falling back to eager load otherwise.
+  ─────────────────────────────────────────────────── */
+  function loadSqsImages() {
+    var images = document.querySelectorAll('img[data-loader="sqs"], img[data-load="false"]');
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            revealImage(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '200px' });
+
+      images.forEach(function (img) { observer.observe(img); });
+    } else {
+      images.forEach(revealImage);
+    }
+  }
+
+  function revealImage(img) {
+    var dataSrc = img.getAttribute('data-src');
+    if (dataSrc && (!img.src || img.src === window.location.href)) {
+      img.src = dataSrc;
+    }
+    img.setAttribute('data-load', 'true');
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', function () { init(); loadSqsImages(); });
   } else {
     init();
+    loadSqsImages();
   }
 
 })();
