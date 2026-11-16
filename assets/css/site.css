@@ -373,3 +373,29 @@ a.tile h3::after { content: ' →'; color: var(--blue); }
   .nav-logo img { height: 42px; }
 }
 @media (max-width: 1060px) { .nav-drop a { white-space: normal; min-height: 40px; padding: 8px 12px; line-height: 1.3; } }
+
+/* ── DIGITAL PROJECTS / CASE STUDIES ───────────────────────── */
+.browser { border-radius: var(--radius-lg); overflow: hidden; background: #fff; border: 1px solid var(--rule); box-shadow: 0 24px 60px rgba(6,60,85,0.16); }
+.browser-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: var(--mist); border-bottom: 1px solid var(--rule); }
+.browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: #c9d1d6; }
+.browser-bar span { margin-left: 10px; flex: 1; font-size: 13px; color: var(--grey); background: #fff; border: 1px solid var(--rule-2); border-radius: 999px; padding: 3px 12px; max-width: 320px; }
+.browser img { width: 100%; height: auto; }
+.case-head { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-bottom: 18px; }
+.case-head img { height: 56px; width: auto; }
+.case-num { font-size: 15px; font-weight: 700; color: var(--green); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 28px; }
+.chips span { font-size: 14px; font-weight: 600; color: var(--ink); background: var(--blue-tint); border-radius: 999px; padding: 6px 14px; }
+.band-mist .chips span { background: #fff; }
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; margin: 44px 0; }
+.shots .browser:nth-child(2) { margin-top: 48px; }
+.shot-wide { margin: 0 0 44px; }
+.shot-cap { font-size: 14px; color: var(--grey); margin-top: 10px; }
+.case-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.case-cols .tile h3 { font-size: 20px; margin-bottom: 14px; }
+.case-brief { font-size: 18px; line-height: 1.65; color: var(--text-2); max-width: 760px; }
+.case-brief strong { color: var(--ink); }
+@media (max-width: 900px) {
+  .shots, .case-cols { grid-template-columns: 1fr; }
+  .shots .browser:nth-child(2) { margin-top: 0; }
+  .case-head img { height: 46px; }
+}

@@ -172,6 +172,11 @@
   to = "/insight/:slug.html"
   status = 301
 
+[[redirects]]
+  from = "/digital-project-development"
+  to = "/digital-project-development.html"
+  status = 301
+
 # Old Squarespace leftovers
 [[redirects]]
   from = "/cart"
