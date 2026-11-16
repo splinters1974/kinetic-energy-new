@@ -2,6 +2,30 @@
 (function () {
   'use strict';
 
+  /* Always open a page at the top (or at the #section the link points to),
+     rather than wherever the browser or the viewer was scrolled to before. */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  function goToStart() {
+    var target = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+    if (target) { target.scrollIntoView({ block: 'start' }); return; }
+    window.scrollTo(0, 0);
+    try { document.body.scrollIntoView({ block: 'start' }); } catch (e) {}
+  }
+  goToStart();
+  var moved = false;
+  ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) {
+    window.addEventListener(ev, function () { moved = true; }, { once: true, passive: true });
+  });
+  window.addEventListener('load', function () { if (!moved) goToStart(); }, { once: true });
+
+  /* Pick one of four zoom-and-pan moves for the hero, so pages don't all move the same way */
+  var media = document.querySelector('.hero-media');
+  if (media) {
+    var h = 0, p = location.pathname;
+    for (var i = 0; i < p.length; i++) h = (h * 31 + p.charCodeAt(i)) >>> 0;
+    media.classList.add('kb-' + (h % 4 + 1));
+  }
+
   var nav = document.querySelector('.site-nav');
   var toggle = document.querySelector('.nav-toggle');
   if (toggle && nav) {

@@ -34,7 +34,8 @@
 
 /* ── RESET ─────────────────────────────────────────────────── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
+[id] { scroll-margin-top: 96px; }
 body { font-family: var(--font); color: var(--ink); background: #fff; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -117,9 +118,25 @@ button, input, select, textarea { font-family: inherit; }
 /* ── HOME HERO ─────────────────────────────────────────────── */
 .hero-wrap { position: relative; overflow: hidden; isolation: isolate; background: var(--ink-deep); }
 .hero-media { position: absolute; inset: 0; z-index: -2; }
-.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 40%; animation: drift 30s ease-in-out infinite alternate; }
-@keyframes drift { from { transform: scale(1.04) translateX(0); } to { transform: scale(1.1) translateX(-1.5%); } }
-@media (prefers-reduced-motion: reduce) { .hero-media img { animation: none; } }
+.hero-media { overflow: hidden; }
+.hero-media picture { display: block; width: 100%; height: 100%; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 40%; transform-origin: 50% 50%; will-change: transform; animation: kb-1 22s ease-in-out infinite alternate; }
+/* Slow zoom and pan (Ken Burns). Each page gets one of four moves, set in site.js. */
+.hero-media.kb-2 img { animation-name: kb-2; }
+.hero-media.kb-3 img { animation-name: kb-3; }
+.hero-media.kb-4 img { animation-name: kb-4; }
+@keyframes kb-1 { from { transform: scale(1.08) translate3d(0, 0, 0); } to { transform: scale(1.2) translate3d(-3%, -2%, 0); } }
+@keyframes kb-2 { from { transform: scale(1.2) translate3d(-3%, 0, 0); } to { transform: scale(1.08) translate3d(2%, -1%, 0); } }
+@keyframes kb-3 { from { transform: scale(1.08) translate3d(2%, 1.5%, 0); } to { transform: scale(1.22) translate3d(-2%, -3%, 0); } }
+@keyframes kb-4 { from { transform: scale(1.18) translate3d(3%, -2%, 0); } to { transform: scale(1.08) translate3d(-2%, 1.5%, 0); } }
+/* Hero text eases in on load */
+.hero > *, .page-hero-inner > * { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+.hero > :nth-child(2), .page-hero-inner > :nth-child(2) { animation-delay: .08s; }
+.hero > :nth-child(3), .page-hero-inner > :nth-child(3) { animation-delay: .16s; }
+.hero > :nth-child(4), .page-hero-inner > :nth-child(4) { animation-delay: .24s; }
+.hero > :nth-child(n+5), .page-hero-inner > :nth-child(n+5) { animation-delay: .32s; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-media img, .hero > *, .page-hero-inner > * { animation: none; } }
 .hero-wrap::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(4,42,60,.95) 0%, rgba(4,42,60,.86) 45%, rgba(4,42,60,.45) 80%, rgba(4,42,60,.3) 100%); }
 .hero { max-width: var(--wrap); margin: 0 auto; padding: 104px 24px 96px; color: #fff; }
 .hero-audience { display: inline-block; font-size: 14px; font-weight: 600; color: var(--ink-deep); background: var(--lime); border-radius: 999px; padding: 6px 14px; margin-bottom: 22px; }
@@ -134,7 +151,6 @@ button, input, select, textarea { font-family: inherit; }
 /* ── INNER PAGE HERO ───────────────────────────────────────── */
 .page-hero { position: relative; overflow: hidden; isolation: isolate; background: var(--ink-deep); padding: 88px 24px 80px; color: #fff; }
 .page-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(4,42,60,.94) 0%, rgba(4,42,60,.84) 45%, rgba(4,42,60,.4) 85%, rgba(4,42,60,.25) 100%); }
-.page-hero .hero-media img { animation-duration: 40s; }
 .page-hero-inner { max-width: var(--wrap); margin: 0 auto; }
 .breadcrumb { display: flex; flex-wrap: wrap; gap: 6px; font-size: 15px; color: var(--on-dark); margin-bottom: 20px; }
 .breadcrumb a { color: #fff; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,.4); }
