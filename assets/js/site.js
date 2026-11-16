@@ -60,6 +60,33 @@
     }
   });
 
+  /* Gentle reveal as sections scroll into view */
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js');
+    var sel = '.section .head-row, .section-tight .head-row, .grid-3 > *, .grid-4 > *, .grid-2 > *, .split > *, .problems > div, .steps > .step, .areas > .area, .shots > *, .shot-wide, .case-cols > *, .compare-row, .tools > *, .founder > *, .contact-grid > *';
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in'); io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll(sel).forEach(function (el) {
+      var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.classList.add('rv'); el.style.transitionDelay = Math.min(i, 3) * 70 + 'ms';
+      io.observe(el);
+    });
+    /* Safety net: never leave content hidden */
+    setTimeout(function () { document.querySelectorAll('.rv:not(.in)').forEach(function (el) {
+      var r = el.getBoundingClientRect(); if (r.top < window.innerHeight) el.classList.add('in'); }); }, 1500);
+  }
+
+  /* Back to top button on long pages */
+  var top = document.createElement('button');
+  top.className = 'to-top'; top.type = 'button'; top.setAttribute('aria-label', 'Back to top'); top.textContent = '↑';
+  document.body.appendChild(top);
+  top.addEventListener('click', function () { window.scrollTo(0, 0); try { document.body.scrollIntoView({ block: 'start' }); } catch (e) {} });
+  window.addEventListener('scroll', function () { top.classList.toggle('show', window.scrollY > 900); }, { passive: true });
+
   /* Contact form: posts to Formspree without leaving the page */
   document.querySelectorAll('form[data-formspree]').forEach(function (form) {
     var status = form.querySelector('.form-status');
