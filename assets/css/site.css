@@ -446,3 +446,9 @@ a.tile h3::after { content: ' →'; color: var(--blue); }
   .pager strong { font-size: 17px; }
   .faq details p { padding-right: 0; }
 }
+
+/* ── ARTICLE AUTHOR ────────────────────────────────────────── */
+.author-box { display: flex; gap: 18px; align-items: flex-start; margin-top: 44px; padding: 24px; background: var(--mist); border-radius: var(--radius-lg); }
+.author-box img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; flex: none; }
+.author-box strong { display: block; font-size: 17px; color: var(--ink); margin-bottom: 4px; }
+.author-box p { font-size: 15.5px; line-height: 1.55; margin: 0; color: var(--text-2); }
