@@ -1,6 +1,6 @@
 # Kinetic Energy Consulting
 
-> Kinetic Energy Consulting is a UK commercial and sales consultancy for energy businesses, led by Martyn Sheridan. It works with owners, managing directors and boards on commercial strategy, sales performance and propositions. Its view is that most energy businesses do not have a market problem, they have a clarity problem, and that growth comes from doing fewer things properly.
+> Kinetic Energy Consulting is a UK commercial and sales consultancy for energy businesses. It works with owners, managing directors and boards on commercial strategy, sales performance and propositions. Its view is that most energy businesses do not have a market problem, they have a clarity problem, and that growth comes from doing fewer things properly.
 
 It is not a marketing agency. It also builds online energy tools, including the UK Solar Calculator (https://uksolarcalculator.co.uk) and Half Hourly Insights (https://hhinsights.co.uk).
 
@@ -31,8 +31,6 @@ It is not a marketing agency. It also builds online energy tools, including the 
 ## About
 - [Our story](https://www.kinetic-energy.co.uk/our-story.html): Why Kinetic Energy Consulting exists: energy businesses rarely lack ambition. They lack focus. We bring clarity and the discipline to deliver it.
 - [Why Kinetic Energy?](https://www.kinetic-energy.co.uk/why-kinetic-energy.html): Commercial clarity, sales discipline and a story that lands, from people who have run sales in the UK energy market. Not a marketing agency, not theory.
-- [Experience](https://www.kinetic-energy.co.uk/experience.html): Martyn Sheridan: thirty years in sales leadership and fifteen in UK energy, including E.ON and Centrica Business Solutions.
-- [What people say](https://www.kinetic-energy.co.uk/testimonials.html): What colleagues, clients and team members say about working with Martyn Sheridan on sales strategy, commercial change and team leadership.
 - [Why not just use AI?](https://www.kinetic-energy.co.uk/why-not-just-use-ai.html): Use AI, but know its limits. Where AI helps a sales team, where it falls short, and why commercial judgement still decides who wins.
 - [Pricing](https://www.kinetic-energy.co.uk/pricing.html): Day rate, fixed-fee project or retained advisory. Simple, transparent pricing for commercial and sales consultancy.
 - [Return on investment](https://www.kinetic-energy.co.uk/return-on-investment.html): Six ways sales and commercial consultancy pays for itself: better sales results, protected margin, focus, less delivery risk and outside challenge.

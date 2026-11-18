@@ -44,12 +44,12 @@
 
 [[redirects]]
   from = "/experience"
-  to = "/experience.html"
+  to = "/our-story.html"
   status = 301
 
 [[redirects]]
   from = "/testimonials"
-  to = "/testimonials.html"
+  to = "/why-kinetic-energy.html"
   status = 301
 
 [[redirects]]
@@ -175,6 +175,16 @@
 [[redirects]]
   from = "/digital-project-development"
   to = "/digital-project-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/experience.html"
+  to = "/our-story.html"
+  status = 301
+
+[[redirects]]
+  from = "/testimonials.html"
+  to = "/why-kinetic-energy.html"
   status = 301
 
 # Old Squarespace leftovers
