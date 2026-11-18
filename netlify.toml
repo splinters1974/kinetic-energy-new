@@ -1,6 +1,7 @@
 [build]
   publish = "."
 
+# Clean URLs: /contact -> /contact.html (kept from the old site so existing links still work)
 [[redirects]]
   from = "/contact"
   to = "/contact.html"
@@ -162,13 +163,49 @@
   status = 301
 
 [[redirects]]
+  from = "/cart"
+  to = "/cart.html"
+  status = 301
+
+[[redirects]]
   from = "/insight/:slug"
   to = "/insight/:slug.html"
   status = 301
 
 [[redirects]]
+  from = "/digital-project-development"
+  to = "/digital-project-development.html"
+  status = 301
+
+# Old Squarespace leftovers
+[[redirects]]
   from = "/cart"
-  to = "/cart.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/cart.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/_downloads.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy-policy-1"
+  to = "/privacy-policy.html"
+  status = 301
+
+[[redirects]]
+  from = "/privacy-policy-1.html"
+  to = "/privacy-policy.html"
+  status = 301
+
+[[redirects]]
+  from = "/insight?format=rss"
+  to = "/insight.html"
   status = 301
 
 [[headers]]
@@ -177,3 +214,8 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
