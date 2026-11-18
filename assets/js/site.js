@@ -102,7 +102,7 @@
           if (status) { status.className = 'form-status ok'; status.textContent = 'Thanks, your message is on its way. We will come back to you soon.'; }
         })
         .catch(function () {
-          if (status) { status.className = 'form-status err'; status.innerHTML = 'Sorry, that did not send. Please email <a href="mailto:pjohnston663@gmail.com">pjohnston663@gmail.com</a> instead.'; }
+          if (status) { status.className = 'form-status err'; status.innerHTML = 'Sorry, that did not send. Please email <a href="mailto:enquiries@kinetic-energy.co.uk">enquiries@kinetic-energy.co.uk</a> instead.'; }
         })
         .finally(function () {
           if (btn) { btn.disabled = false; btn.textContent = 'Send message'; }
